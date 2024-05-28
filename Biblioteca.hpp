@@ -12,8 +12,8 @@ class Biblioteca {
                    string editarPropriedades(string,int,int); // condicao do livro, status do livro (disponivel ou emprestado) 
                     //e status do emprestimo (pagamento atrasado etc)
                    string acervo(string);//mostrar o titulo dos livros
-                   string cadastrarLivro(int,string,string,int,string,string,int,string); // dados do livro 
-                   string receberLivro(int);
+                   string cadastrarLivro(int,string,string,int,string,string,int,string); // dados do livro (id) 
+                   string receberLivro(int); // mudar o status de emprestimo
                    string cadastroCliente(int;string;string;int;string);// dados do cliente
                    string receberPagamento(int); // status da multa
                    
