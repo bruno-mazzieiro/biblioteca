@@ -1,4 +1,7 @@
-          private:                  
+#include <iostream>
+#include Biblioteca.hpp
+
+private:                  
                    string localizarLivro (int);
                    // Percorrer a string ate identificar a posicao com a mesma id inserida pelo usuario
                    // pedir a id, for,  
