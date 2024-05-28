@@ -3,9 +3,12 @@
 
 #include <iostream>
 #include <string>
+#include <Vector>
 #include <Livro.hpp>
 
 class Biblioteca { 
+          int total;
+          vector <Livro> livros;//armazenar todos os livros em um vetor, para ser mais facil achar
 
           private:
                    string localizarLivro (int);// percorrer a string até identificar a localização
@@ -21,4 +24,8 @@ class Biblioteca {
           public:  
                   string enviarNotificacao();
                   string enviarCobranca();
+
+};
+
+#endif
                    
