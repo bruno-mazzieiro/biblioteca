@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <Livro.hpp>
 
 class Biblioteca { 
 
