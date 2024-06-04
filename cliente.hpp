@@ -12,7 +12,7 @@ class Cliente {
 public:
   // Construtor
   Cliente(const std::string& nome, const std::string& endereco, const std::string& telefone,
-         const std::string& email);
+         const std::string& email, const std::string& senha);
 
   // Getters
   const std::string& getIdentificador() const;
@@ -20,6 +20,7 @@ public:
   const std::string& getEndereco() const;
   const std::string& getTelefone() const;
   const std::string& getEmail() const;
+  const std::string& getSenha() const; // Adiciona getter para senha
   const std::vector<Livro*>& getLivrosEmprestados() const;
   const std::vector<double>& getMultasPendentes() const;
 
@@ -29,6 +30,7 @@ public:
   void setEndereco(const std::string& endereco);
   void setTelefone(const std::string& telefone);
   void setEmail(const std::string& email);
+  void setSenha(const std::string& senha); // Adiciona setter para senha
 
   // Funcionalidades - Interação com Livros
   void pagarMulta(Livro* livro);
@@ -50,6 +52,7 @@ private:
   std::string endereco;
   std::string telefone;
   std::string email;
+  std::string senha; // Adiciona atributo para senha
   std::vector<Livro*> livrosEmprestados;
   std::vector<double> multasPendentes;
 };
