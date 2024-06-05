@@ -85,13 +85,6 @@ string Biblioteca::receberLivro(int identificador_livro) {
     return "Livro não encontrado.";
 }
 
-                   #include "Biblioteca.hpp"
-#include "Cliente.hpp"
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 // Função para gerar o identificador do cliente
 string gerarIdentificador(const string& nome, const string& telefone) {
     if (nome.length() < 2 || telefone.length() < 4) {
