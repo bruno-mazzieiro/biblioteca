@@ -7,8 +7,8 @@ Livro*  Biblioteca::cadastrarLivro(int identificador_livro, string titulo_livro,
                             return nullptr;
                         }
                     }
-                    livros.push_back(Livro(int identificador_livro, string titulo_livro, string autor_livro, int ano_publicacao, string genero_livro, string condicao_livro, int status_livro, string localizacao_livro));
-                    return &contas.back();
+                    livros.push_back(Livro(identificador_livro, titulo_livro, autor_livro, ano_publicacao, genero_livro, condicao_livro, status_livro, localizacao_livro));
+                    return &livros.back();
                 }
                 
                   // if livro ja existente, mensagem: livro qnt + 1; else realiza cadastro
@@ -17,7 +17,9 @@ Livro*  Biblioteca::cadastrarLivro(int identificador_livro, string titulo_livro,
                 Livro*  Biblioteca::editarPropriedades(string multa,int condicao_livro,int status_livro){
                     for(const Livro &livro : livros){
                         if(livro.identificadorLivro == identificador_livro){
-                                //adicionar um para alterar o status da multa se pago ou nao
+                          cout<<"Condicao multa:"<<multa<<endl;
+                          cout<<"Altere a condicao da multa se necessario:"<<endl;
+                          cin<<multa;
                             cout<< "Insira a condicao do livro"<< identificador_livro << endl;
                             cin<<condicao_livro;
                             cout<<"Insira o status de disponibilidade do livro"<< identificador_livro << endl;
@@ -36,9 +38,31 @@ Livro*  Biblioteca::cadastrarLivro(int identificador_livro, string titulo_livro,
                 }
                    
                 Livro*  Biblioteca::multar(int); 
+    Livro* multar(int identificador_livro) {
+        for (Livro &livro : livros) {
+            if (livro.identificadorLivro == identificador_livro && livro.status == 1) {
+                // Data atual
+                auto agora = std::chrono::system_clock::now();
+                
+                // Cálculo da diferença em dias
+                auto duracao = std::chrono::duration_cast<std::chrono::hours>(agora - livro.dataEmprestimo).count();
+                int diasPassados = duracao / 24;
+
+                if (diasPassados > 15) {
+                    int diasAtraso = diasPassados - 15;
+                    livro.multa = diasAtraso * 1.0; // 1 real por dia de atraso
+                    livro.status = 2; // Status "atrasado"
+                }
+
+                return &livro;
+            }
+        } 
+          return nullptr;
+    }
                    // recebe status,recebe data, calcula os dias de atraso, calcula a multa, muda o status do emprestimo para atrasado
 //data recebida faca o calculo do prazo de entrega sendo que a pessoa pode ficar 15 dias com livro, depois calcule a multa a ser paga que sera 1 real a cada dia de atraso. Alem disso tenha uma variavel que mude o status do emprestimo para pagamentoa atrasad
-                 
+
+              //mostrar o livro
                         for(const Livro &livro : livros){
                             cout << livro.identificadorLivro <<" "<< livro.autorLivro << endl;
                         }
