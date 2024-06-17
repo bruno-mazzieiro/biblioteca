@@ -69,7 +69,6 @@ void Cliente::setSenha(const std::string& senha) {
 
 // Funcionalidades - Interação com Livros
 void Cliente::pagarMulta(Livro* livro) {
-    // Implementação para pagar a multa associada a um livro
     auto it = std::find(livrosEmprestados.begin(), livrosEmprestados.end(), livro);
     if (it != livrosEmprestados.end()) {
         auto index = std::distance(livrosEmprestados.begin(), it);
@@ -79,7 +78,6 @@ void Cliente::pagarMulta(Livro* livro) {
 }
 
 void Cliente::reservarLivro(Livro* livro) {
-    // Implementação para reservar um livro
     if (livro->retornarStatus(livro->retornarIdentificador()) == "0") { // Verifica se o livro está disponível
         livrosEmprestados.push_back(livro);
         livro->retornarStatus(1); // Marca o livro como emprestado
@@ -90,7 +88,6 @@ void Cliente::reservarLivro(Livro* livro) {
 }
 
 void Cliente::devolverLivro(Livro* livro) {
-    // Implementação para devolver um livro
     auto it = std::find(livrosEmprestados.begin(), livrosEmprestados.end(), livro);
     if (it != livrosEmprestados.end()) {
         livrosEmprestados.erase(it);
@@ -101,10 +98,7 @@ void Cliente::devolverLivro(Livro* livro) {
     }
 }
 
-
-
 void Cliente::consultarStatusEmprestimo(Livro* livro) {
-    // Implementação para consultar o status do empréstimo de um livro
     auto it = std::find(livrosEmprestados.begin(), livrosEmprestados.end(), livro);
     if (it != livrosEmprestados.end()) {
         std::cout << "O livro " << livro->retornarIdentificador() << " está atualmente emprestado por " << nome << ".\n";
@@ -118,11 +112,17 @@ bool Cliente::fazerLogin(const std::string& usuario, const std::string& senha) {
     return (this->email == usuario || this->identificador == usuario) && this->senha == senha;
 }
 
+// Funcionalidades - Notificação
+void Cliente::receberNotificacao(const std::string& mensagem) {
+    std::cout << "Notificação para " << nome << ": " << mensagem << "\n";
+}
+
 // Funcionalidades - Busca e Consulta
 void Cliente::consultarStatusEmprestimo(Livro* livro) {
-    // Implementação para consultar o status do empréstimo de um livro
     auto it = std::find(livrosEmprestados.begin(), livrosEmprestados.end(), livro);
     if (it != livrosEmprestados.end()) {
         std::cout << "O livro " << livro->retornarIdentificador() << " está atualmente emprestado por " << nome << ".\n";
     } else {
-        std::cout << "O livro " << livro->retornarIdentificador() << " não está emprestado por "
+        std::cout << "O livro " << livro->retornarIdentificador() << " não está emprestado por " << nome << ".\n";
+    }
+}
