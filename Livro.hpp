@@ -17,9 +17,12 @@ class Livro {
 		string localizacaoLivro;		
 		
 	public:
+		//Construtores
 		Livro (int, string, string, int, string, string, int, string);
 		Livro (int, string, string, int, string);
 		Livro (int);
+
+		//Getters
 		int retornarIdentificador();
 		string retornarStatus (int);
 		string retornarLocalizacao(int);
