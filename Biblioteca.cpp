@@ -60,7 +60,7 @@ Livro* Biblioteca::multar(int identificador_livro) {
             int diasPassados = duracao / 24; // Converte a duração para dias
 
             if (diasPassados > 15) { // Verifica se o livro está atrasado
-                int diasAtraso = diasPassados - 15;
+                int diasAtraso = diasPassados - 15; // O prazo de empréstimo é de 15 dias, após isso é atraso.
                 livro.multa = diasAtraso * 1.0; // Calcula a multa (1 real por dia de atraso)
                 livro.statusLivro = 2; // Atualiza o status do livro para "atrasado"
             }
@@ -79,7 +79,7 @@ string Biblioteca::receberLivro(int identificador_livro) {
             return "Livro recebido."; // Retorna mensagem de sucesso
         }
     }
-    return "Livro não encontrado."; // Retorna mensagem de erro se o livro não foi encontrado
+    return "Livro não encontrado."; // Retorna mensagem de erro se o livro não for encontrado
 }
 
 // Função para gerar o identificador do cliente
