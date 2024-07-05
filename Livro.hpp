@@ -24,9 +24,9 @@ class Livro {
 
 		//Getters
 		int retornarIdentificador();
-		std::string retornarStatus (int);
-		std::string retornarLocalizacao(int);
-		std::string retornarCondicao (int);
+		const std::string retornarStatus (int);
+		const std::string retornarLocalizacao(int);
+		const std::string retornarCondicao (int);
 	
 };
 
