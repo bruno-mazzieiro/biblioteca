@@ -10,14 +10,14 @@ using namespace std;
 Livro::Livro(int identificador_livro, string titulo_livro, string autor_livro, int ano_publicacao, string genero_livro, string condicao_livro, int status_livro, string localizacao_livro) {
     
     // Inicialização dos atributos com os parâmetros fornecidos
-    this->identificador_livro = identificador_livro;
-    this->titulo_livro = titulo_livro;
-    this->autor_livro = autor_livro;
-    this->ano_publicacao = ano_publicacao;
-    this->genero_livro = genero_livro;
-    this->condicao_livro = condicao_livro;
-    this->status_livro = status_livro;
-    this->localizacao_livro = localizacao_livro; 
+    this->identificadorLivro = identificador_livro;
+    this->tituloLivro = titulo_livro;
+    this->autorLivro = autor_livro;
+    this->anoPublicacao = ano_publicacao;
+    this->generoLivro = genero_livro;
+    this->condicaoLivro = condicao_livro;
+    this->statusLivro = status_livro;
+    this->localizacaoLivro = localizacao_livro; 
     
 }
 
@@ -27,46 +27,36 @@ Livro::Livro(int identificador_livro, string titulo_livro, string autor_livro, i
     
     // Inicialização dos atributos com os parâmetros fornecidos
     // Os atributos não fornecidos podem ser inicializados com valores padrão
-    this->identificador_livro = identificador_livro;
-    this->titulo_livro = titulo_livro;
-    this->autor_livro = autor_livro;
-    this->ano_publicacao = ano_publicacao;
-    this->genero_livro = genero_livro;
-    this->condicao_livro = "Desconhecida";
-    this->status_livro = 0;
-    this->localizacao_livro = "Desconhecida";
-
+    this->identificadorLivro = identificador_livro;
+    this->tituloLivro = titulo_livro;
+    this->autorLivro = autor_livro;
+    this->anoPublicacao = ano_publicacao;
+    this->generoLivro = genero_livro;
+   
 }
-
 // Construtor básico da classe Livro
 // Inicializa apenas o identificador do livro
 Livro::Livro(int identificador_livro) {
     
     // Inicialização do identificador com o parâmetro fornecido
     // Os outros atributos podem ser inicializados com valores padrão
-    this->identificador_livro = identificador_livro;
-    this->titulo_livro = "Desconhecido";
-    this->autor_livro = "Desconhecido";
-    this->ano_publicacao = 0;
-    this->genero_livro = "Desconhecido";
-    this->condicao_livro = "Desconhecida";
-    this->status_livro = 0;
-    this->localizacao_livro = "Desconhecida";
+    this->identificadorLivro = identificador_livro;
+
 }
 
 // Função para retornar o identificador do livro
 int Livro::retornarIdentificador() {
     
     // Retorna o identificador do livro
-     return this->identificador_livro;
+     return this->identificadorLivro;
 }
 
 // Função para retornar o status do livro com base no identificador fornecido
 string Livro::retornarStatus(int identificador_livro) {
     
     // Retorna o status do livro
-    if (this->identificador_livro == identificador_livro) {
-        if (this->status_livro == 0) {
+    if (this->identificadorLivro == identificador_livro) {
+        if (this->statusLivro == 0) {
             return "Livro indisponível";
         } else {
             return "Livro disponível";
@@ -79,11 +69,11 @@ string Livro::retornarStatus(int identificador_livro) {
 string Livro::retornarLocalizacao(int identificador_livro) {
     
     // Retorna a localização do livro
-    if (this->identificador_livro == identificador_livro) {
-        if (this->localizacao_livro == "Desconhecida") {
+    if (this->identificadorLivro == identificador_livro) {
+        if (this->localizacaoLivro == "Desconhecida") {
             return "Localização desconhecida";
         } else {
-            return this->localizacao_livro;
+            return this->localizacaoLivro;
         }
     }
     return "Insira um Id válido";
@@ -92,14 +82,14 @@ string Livro::retornarLocalizacao(int identificador_livro) {
 
 
 // Função para retornar a condição do livro com base no identificador fornecido
-string Livro::retornarCondicao(int identificador_livro) {
+string Livro::retornarCondicao(int identificadorLivro) {
     
     // Retorna a condição do livro
-    if (this->identificador_livro == identificador_livro) {
-        if (this->condicao_livro == "Desconhecida") {
+    if (this->identificadorLivro == identificadorLivro) {
+        if (this->condicaoLivro == "Desconhecida") {
             return "Condição desconhecida";
         } else {
-            return this->condicao_livro;
+            return this->condicaoLivro;
         }
     }
     return "Insira um Id válido";

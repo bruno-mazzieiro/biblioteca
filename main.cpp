@@ -5,6 +5,7 @@
 
 int main() {
     Biblioteca biblioteca;
+    using namespace std;
 
     int escolha;
     do {
@@ -91,7 +92,7 @@ int main() {
 
                 Livro* livro = biblioteca.multar(id);
                 if (livro) {
-                    cout << "Livro multado. Multa atual: " << livro->multa << "\n";
+                    cout << "Livro multado. Multa atual: " << livro-> multa << "\n";
                 } else {
                     cout << "Erro: Livro com ID " << id << " não encontrado ou não está emprestado.\n";
                 }

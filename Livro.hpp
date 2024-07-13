@@ -14,7 +14,8 @@ class Livro {
 		std::string generoLivro;
 		std::string condicaoLivro;
 		int statusLivro;				//0 - Disponivel; 1 - Emprestado; 2 - Em processo de devolucao; 3 - Outro
-		std::string localizacaoLivro;		
+		std::string localizacaoLivro;	
+		std::string multa;	
 		
 	public:
 		//Construtores
@@ -23,10 +24,12 @@ class Livro {
 		Livro (int);
 
 		//Getters
-		int retornarIdentificador();
-		const std::string retornarStatus (int);
-		const std::string retornarLocalizacao(int);
-		const std::string retornarCondicao (int);
+  		const int& retornarIdentificador() const;
+		const std::string& retornarStatus(int) const;
+  		const std::string& retornarLocalizacao(int) const;
+  		const std::string& retornarCondicao(int) const;
+
+
 	
 };
 

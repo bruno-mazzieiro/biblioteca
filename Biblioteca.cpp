@@ -1,11 +1,13 @@
 #include "Biblioteca.hpp"
 #include "Cliente.hpp"
 #include "Livro.hpp"
+#include <chrono>
+
 
 using namespace std;
 
 Livro* Biblioteca::cadastrarLivro(int identificador_livro, string titulo_livro, string autor_livro, int ano_publicacao, string genero_livro, string condicao_livro, int status_livro, string localizacao_livro) {
-    for (const Livro &livro : livros) {
+    for ( Livro &livro : livros) {
         if (livro.retornarIdentificador() == identificador_livro) {
             return nullptr;
         }

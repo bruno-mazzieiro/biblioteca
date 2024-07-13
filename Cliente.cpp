@@ -109,4 +109,3 @@ bool Cliente::fazerLogin(const std::string& usuario, const std::string& senha) {
 void Cliente::receberNotificacao(const std::string& mensagem) {
     std::cout << "Notificação para " << nome << ": " << mensagem << "\n";
 }
-
